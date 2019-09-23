@@ -1,0 +1,115 @@
+* {
+    transition: 200ms;
+}
+
+:root {
+    --font-size: 3rem;
+    --font-size-large: 5rem;
+    --margin: 1.5rem 0;
+    --padding: 1.5rem;
+}
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: black;
+    text-align: center;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background-color: black;
+
+}
+
+input::placeholder {
+    color: white;
+    opacity: 0.5;
+}
+
+span,
+input {
+    padding: var(--padding);
+    margin: var(--margin);
+    color: white;
+    background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: var(--font-size);
+}
+
+span {
+    margin: 0
+}
+
+#before,
+#after {
+    font-size: var(--font-size-large);
+}
+
+input {
+    border: none;
+    border-bottom: 0.25rem solid white;
+    width: 40%;
+}
+
+input:focus {
+    outline: none;
+}
+
+#format {
+    border: 0.25rem solid white;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+#help {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    color: white;
+    opacity: 0.5;
+    background: black;
+    font-weight: bolder;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    text-align: right;
+}
+
+.hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 425px) {
+    :root {
+        --font-size: 1.5rem;
+        --font-size-large: 2rem;
+
+        --padding: .25rem;
+        --margin: .25rem 0;
+    }
+
+    .wrapper {
+        padding: 10px;
+    }
+
+    #format {
+        border-width: 0.125rem;
+    }
+
+    input {
+        border-bottom-width: 0.125rem;
+    }
+
+    #help {
+        display: none;
+    }
+}
