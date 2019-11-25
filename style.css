@@ -26,7 +26,6 @@ body {
     justify-content: center;
     opacity: 0.5;
     background-color: black;
-
 }
 
 input::placeholder {
@@ -45,7 +44,7 @@ input {
 }
 
 span {
-    margin: 0
+    margin: 0;
 }
 
 #before,
@@ -79,8 +78,15 @@ input:focus {
     font-weight: bolder;
     right: 0;
     bottom: 0;
-    padding: 1rem;
-    text-align: right;
+    padding: 1rem 1rem 1rem 0;
+    text-align: left;
+    display: flex;
+}
+
+.help-close {
+    padding: 0.5rem;
+    padding-left: 1rem;
+    cursor: pointer;
 }
 
 .hidden {
@@ -93,8 +99,8 @@ input:focus {
         --font-size: 1.5rem;
         --font-size-large: 2rem;
 
-        --padding: .25rem;
-        --margin: .25rem 0;
+        --padding: 0.25rem;
+        --margin: 0.25rem 0;
     }
 
     .wrapper {

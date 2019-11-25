@@ -3,7 +3,8 @@ const format = document.getElementById('format'),
     after = document.getElementById('after'),
     input = document.querySelector('input'),
     wrapper = document.querySelector('.wrapper'),
-    help = document.getElementById('help');
+    help = document.getElementById('help'),
+    closeBtn = document.querySelector('.help-close');
 
 let counter = 0;
 let hidden = false;
@@ -21,7 +22,6 @@ const toggleHidden = () => {
 let inputToCss = v => `#${v}`;
 
 format.onclick = () => {
-    // console.log(3);
     format.textContent = text = ['hex', 'rgb', 'hsl', 'css'][++counter % 4];
     input.value = '';
     if (text === 'hex') {
@@ -52,6 +52,14 @@ input.oninput = () => {
 };
 
 randBg();
+
+closeBtn.addEventListener('click', () => {
+    console.log(1);
+    help.style.opacity = 0;
+    setTimeout(() => {
+        help.style.display = 'none';
+    }, 200);
+});
 
 document.onkeydown = event => {
     const { altKey, key } = event;
