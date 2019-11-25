@@ -27,7 +27,7 @@ format.onclick = () => {
     if (text === 'hex') {
         input.placeholder = 'hexcode';
         before.textContent = '#';
-        after.textContent = '';
+        after.innerHTML = '&nbsp;';
         inputToCss = v => `#${v}`;
     } else if (text === 'rgb') {
         input.placeholder = 'r, g, b';
@@ -41,8 +41,8 @@ format.onclick = () => {
         inputToCss = v => `hsl(${v})`;
     } else if (text == 'css') {
         input.placeholder = 'color:';
-        before.textContent = '';
-        after.textContent = '';
+        before.innerHTML = '&nbsp;';
+        after.innerHTML = '&nbsp;';
         inputToCss = v => (v ? v : document.body.style.background);
     }
 };
