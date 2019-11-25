@@ -69,6 +69,14 @@ input:focus {
     -webkit-user-select: none;
 }
 
+#format:hover {
+  transform: scale(1.1);
+}
+
+#format:active {
+  transform: scale(1.05);
+}
+
 #help {
     font-family: Arial, Helvetica, sans-serif;
     position: absolute;
