@@ -54,10 +54,10 @@ input.oninput = () => {
 randBg();
 
 closeBtn.addEventListener('click', () => {
-    console.log(1);
     help.style.opacity = 0;
     setTimeout(() => {
         help.style.display = 'none';
+        document.body.removeChild(help);
     }, 200);
 });
 
