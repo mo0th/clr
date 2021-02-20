@@ -1,70 +1,67 @@
-const format = document.getElementById('format'),
-    before = document.getElementById('before'),
-    after = document.getElementById('after'),
-    input = document.querySelector('input'),
-    wrapper = document.querySelector('.wrapper'),
-    help = document.getElementById('help'),
-    closeBtn = document.querySelector('.help-close');
+;(() => {
+  const FORMATS = [
+    {
+      name: 'css',
+      before: '',
+      after: '',
+      placeholder: '<color>',
+      toCSS: str => str,
+    },
+    {
+      name: 'hex',
+      before: '#',
+      after: '',
+      placeholder: 'ff00ff',
+      toCSS: str => (str[0] === '#' ? str : '#' + str),
+    },
+    {
+      name: 'rgb',
+      before: '(',
+      after: ')',
+      placeholder: '256, 0, 256',
+      toCSS: str => (str.startsWith('rgb') ? str : `rgb(${str})`),
+    },
+    {
+      name: 'hsl',
+      before: '(',
+      after: ')',
+      placeholder: '300, 100, 50',
+      toCSS: str => (str.startsWith('hsl') ? str : `rgb(${str})`),
+    },
+  ]
 
-let counter = 0;
-let hidden = false;
+  const controlled = document.querySelector('.clr-controlled')
+  const btn = document.getElementById('btn-format')
+  const before = document.getElementById('format-before')
+  const input = document.getElementById('input')
+  const after = document.getElementById('format-after')
 
-const randBg = () =>
-    (document.body.style.background = `hsl(${Math.random() * 255}, 50%, 50%)`);
+  let format = FORMATS[0]
 
-const toggleHidden = () => {
-    hidden
-        ? (wrapper.classList.remove('hidden'), help.classList.remove('hidden'))
-        : (wrapper.classList.add('hidden'), help.classList.add('hidden'));
-    hidden = !hidden;
-};
+  function renderControls() {
+    const hash = window.location.hash
+    const selectedFormat = hash ? hash.substr(1) : 'css'
+    let idx = FORMATS.findIndex(f => f.name === selectedFormat)
+    if (idx === -1) idx = 0
 
-let inputToCss = v => `#${v}`;
+    format = FORMATS[idx]
+    const nextFormatName = FORMATS[(idx + 1) % FORMATS.length].name
 
-format.onclick = () => {
-    format.textContent = text = ['hex', 'rgb', 'hsl', 'css'][++counter % 4];
-    input.value = '';
-    if (text === 'hex') {
-        input.placeholder = 'hexcode';
-        before.textContent = '#';
-        after.innerHTML = '&nbsp;';
-        inputToCss = v => `#${v}`;
-    } else if (text === 'rgb') {
-        input.placeholder = 'r, g, b';
-        before.textContent = '(';
-        after.textContent = ')';
-        inputToCss = v => `rgb(${v})`;
-    } else if (text === 'hsl') {
-        input.placeholder = 'h, s, l';
-        before.textContent = '(';
-        after.textContent = ')';
-        inputToCss = v => `hsl(${v})`;
-    } else if (text == 'css') {
-        input.placeholder = 'color:';
-        before.innerHTML = '&nbsp;';
-        after.innerHTML = '&nbsp;';
-        inputToCss = v => (v ? v : document.body.style.background);
-    }
-};
+    btn.innerText = format.name
+    btn.setAttribute('href', '#' + nextFormatName)
+    before.innerText = format.before
+    after.innerText = format.after
+    input.placeholder = format.placeholder
+    input.value = ''
+  }
 
-input.oninput = () => {
-    document.body.style.background = inputToCss(input.value);
-};
+  renderControls()
+  window.addEventListener('hashchange', renderControls)
+  input.addEventListener('input', () => {
+    if (input.value)
+      controlled.style.backgroundColor = format.toCSS(input.value)
+  })
 
-randBg();
-
-closeBtn.addEventListener('click', () => {
-    help.style.opacity = 0;
-    setTimeout(() => {
-        help.style.display = 'none';
-        document.body.removeChild(help);
-    }, 200);
-});
-
-document.onkeydown = event => {
-    const { altKey, key } = event;
-    if (altKey) {
-        if (key === 'r') randBg();
-        if (key === 'h') toggleHidden();
-    }
-};
+  // Random initial bg
+  controlled.style.backgroundColor = `hsl(${Math.random() * 255}, 50%, 50%)`
+})()

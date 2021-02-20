@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>clr</title>
-        <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <div class="wrapper" id="form">
-            <span id="format">hex</span>
-            <span id="before">#</span>
-            <input type="text" placeholder="hexcode" />
-            <span id="after">&nbsp;</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>clr | mooth.tech</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="clr-controlled">
+    <div class="center">
+      <main class="clr">
+        <div>
+          <a href="#hex" class="btn btn-primary" id="btn-format">css</a>
         </div>
-
-        <div id="help">
-            <div class="help-close">
-                <svg
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    id="close"
-                >
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </div>
-            <div class="help-text">
-                <div id="random">
-                    Press <code>alt+r</code> for a random color.
-                </div>
-                <div id="hide">
-                    Press <code>alt+h</code> to hide / unhide GUI.
-                </div>
-            </div>
+        <div class="format-decoration" id="format-before"></div>
+        <div>
+          <input
+            name="color"
+            class="clr-input"
+            id="input"
+            placeholder="css"
+            aria-label="Color"
+          />
         </div>
+        <div class="format-decoration" id="format-after"></div>
+      </main>
+    </div>
 
-        <script src="app.js"></script>
-    </body>
+    <footer class="footer">
+      <span class="center space-1">
+        Made with&nbsp;
+        <svg
+          class="icon heart-icon"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+          ></path>
+        </svg>
+        &nbsp;by&nbsp;<a href="https://mooth.tech">Soorria Saruva</a>
+      </span>
+
+      <span>|</span>
+      <a href="https://github.com/mo0th/clr" class="center space-1">
+        <svg
+          class="icon source-icon"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        &nbsp;Source
+      </a>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
 </html>

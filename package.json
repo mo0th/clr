@@ -1,0 +1,15 @@
+{
+  "name": "clr",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mo0th/clr.git",
+  "author": "Soorria Saruva <soorria.ss@gmail.com> (http://mooth.tech)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "lite-server": "^2.6.1"
+  }
+}
