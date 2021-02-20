@@ -6,10 +6,12 @@
   "author": "Soorria Saruva <soorria.ss@gmail.com> (http://mooth.tech)",
   "license": "MIT",
   "scripts": {
-    "dev": "lite-server"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
-    "lite-server": "^2.6.1"
+    "lite-server": "^2.6.1",
+    "parcel-bundler": "^1.12.4"
   }
 }
