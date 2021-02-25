@@ -89,6 +89,7 @@ a {
   color: var(--color);
   font: inherit;
   border-radius: var(--radius);
+  box-shadow: 0 0 0 2px #999;
   transition: all var(--duration) ease-in-out;
 }
 
