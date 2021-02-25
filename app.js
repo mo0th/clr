@@ -59,9 +59,9 @@
   window.addEventListener('hashchange', renderControls)
   input.addEventListener('input', () => {
     if (input.value)
-      controlled.style.backgroundColor = format.toCSS(input.value)
+      controlled.style.background = format.toCSS(input.value)
   })
 
   // Random initial bg
-  controlled.style.backgroundColor = `hsl(${Math.random() * 255}, 50%, 50%)`
+  controlled.style.background = `hsl(${Math.random() * 255}, 50%, 50%)`
 })()
