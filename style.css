@@ -37,6 +37,7 @@ a {
 
 .clr {
   --color: #eee;
+  --color-faded: #999;
   --radius: 0.5rem;
   background: #0009;
   color: var(--color);
@@ -68,13 +69,14 @@ a {
 
 .btn {
   padding: 1rem 1.5rem;
-  box-shadow: 0 0 0 2px var(--color);
+  box-shadow: 0 0 0 2px var(--color-faded);
   border-radius: var(--radius);
   transition: all var(--duration) ease-in-out;
 }
 
 .btn:hover {
   background-color: var(--color);
+  box-shadow: 0 0 0 2px var(--color);
   color: #222;
 }
 
@@ -89,7 +91,7 @@ a {
   color: var(--color);
   font: inherit;
   border-radius: var(--radius);
-  box-shadow: 0 0 0 2px #999;
+  box-shadow: 0 0 0 2px var(--color-faded);
   transition: all var(--duration) ease-in-out;
 }
 
