@@ -1,7 +1,7 @@
 {
   "name": "clr",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "repository": "git@github.com:mo0th/clr.git",
   "author": "Soorria Saruva <soorria.ss@gmail.com> (http://mooth.tech)",
   "license": "MIT",
@@ -11,7 +11,9 @@
   },
   "devDependencies": {
     "cssnano": "^4.1.10",
-    "lite-server": "^2.6.1",
-    "parcel-bundler": "^1.12.4"
+    "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "parcel": "^2.0.0-beta.2"
   }
 }
